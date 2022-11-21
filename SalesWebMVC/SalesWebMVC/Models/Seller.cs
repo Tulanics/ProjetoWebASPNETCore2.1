@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace SalesWebMVC.Models
 {
@@ -63,6 +64,11 @@ namespace SalesWebMVC.Models
         public double TotalSales(DateTime initial, DateTime final)
         {
             return Sales.Where(sr => sr.Date >= initial && sr.Date <= final).Sum(sr => sr.Amount);
+        }
+
+        public static implicit operator Seller(Task<Seller> v)
+        {
+            throw new NotImplementedException();
         }
     }
 }
